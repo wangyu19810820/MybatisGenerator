@@ -41,7 +41,11 @@ PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
 			<!--<property name="suppressJavaInterface" value="false"/>-->
 		<!--</plugin>-->
 
-		<!--<plugin type="com.util.CommentPlugin">-->
+		<!--自定义插件，用于学习，生成model类的时候回调，指定父类类名，添加字段，添加方法-->
+		<!--<plugin type="com.custom.ModelCallbackPlugin">-->
+			<!--<property name="baseClassName" value="com.abc.ZZZ"></property>-->
+			<!--<property name="customFieldName" value="aaa"></property>-->
+			<!--<property name="customMethodName" value="getAaa"></property>-->
 		<!--</plugin>-->
 
 

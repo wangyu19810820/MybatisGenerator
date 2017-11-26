@@ -1,1 +1,3 @@
+com\custom\ModelCallbackPlugin.class
 com\custom\CustomCommentGenerator.class
+com\custom\MapperPlugin.class
