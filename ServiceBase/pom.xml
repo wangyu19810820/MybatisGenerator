@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>wangyu1981</groupId>
-  <artifactId>MybatisGeneratorExtension</artifactId>
+  <artifactId>ServiceBase</artifactId>
   <version>1.0</version>
   <packaging>jar</packaging>
 
-  <name>MybatisGeneratorExtension</name>
+  <name>ServiceBase</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -23,11 +23,6 @@
       <scope>test</scope>
     </dependency>
 
-    <dependency>
-      <groupId>org.mybatis.generator</groupId>
-      <artifactId>mybatis-generator-core</artifactId>
-      <version>1.3.5</version>
-    </dependency>
-
   </dependencies>
+
 </project>

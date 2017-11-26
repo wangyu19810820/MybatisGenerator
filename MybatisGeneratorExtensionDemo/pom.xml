@@ -4,7 +4,7 @@
 
   <groupId>wangyu1981</groupId>
   <artifactId>MybatisGeneratorExtensionDemo</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <packaging>jar</packaging>
 
   <name>MybatisGeneratorExtensionDemo</name>
@@ -21,6 +21,12 @@
   </properties>
 
   <dependencies>
+
+    <dependency>
+      <groupId>wangyu1981</groupId>
+      <artifactId>ServiceBase</artifactId>
+      <version>1.0</version>
+    </dependency>
 
     <dependency>
       <groupId>junit</groupId>
@@ -134,6 +140,8 @@
       <version>RELEASE</version>
     </dependency>
 
+
+
     <!--<dependency>-->
     <!--<groupId>org.mybatis.generator</groupId>-->
     <!--<artifactId>mybatis-generator</artifactId>-->
@@ -184,10 +192,15 @@
         </configuration>
         <dependencies>
           <dependency>
-            <groupId>wangyu1981</groupId>
-            <artifactId>MBGPlugin</artifactId>
-            <version>1.0</version>
-          </dependency>
+          <groupId>wangyu1981</groupId>
+          <artifactId>MybatisGeneratorExtension</artifactId>
+          <version>1.0</version>
+        </dependency>
+        <dependency>
+          <groupId>wangyu1981</groupId>
+          <artifactId>ServiceBase</artifactId>
+          <version>1.0</version>
+        </dependency>
         </dependencies>
       </plugin>
 
