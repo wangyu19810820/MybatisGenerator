@@ -1,0 +1,3 @@
+com\base\BaseModel.class
+com\base\GenericDao.class
+com\custom\CustomCommentGenerator.class
