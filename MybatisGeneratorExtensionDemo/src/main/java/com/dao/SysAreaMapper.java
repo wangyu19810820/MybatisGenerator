@@ -3,15 +3,8 @@ package com.dao;
 import com.model.SysArea;
 import com.model.SysAreaCriteria;
 import java.util.List;
-import org.apache.ibatis.annotations.DeleteProvider;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.SelectProvider;
-import org.apache.ibatis.annotations.UpdateProvider;
-import org.apache.ibatis.type.JdbcType;
+import org.apache.ibatis.session.RowBounds;
 
 public interface SysAreaMapper {
     /**
@@ -19,7 +12,6 @@ public interface SysAreaMapper {
      * This method corresponds to the database table sys_area
      * @mbg.generated
      */
-    @SelectProvider(type=SysAreaSqlProvider.class, method="countByExample")
     long countByExample(SysAreaCriteria example);
 
     /**
@@ -27,7 +19,6 @@ public interface SysAreaMapper {
      * This method corresponds to the database table sys_area
      * @mbg.generated
      */
-    @DeleteProvider(type=SysAreaSqlProvider.class, method="deleteByExample")
     int deleteByExample(SysAreaCriteria example);
 
     /**
@@ -35,30 +26,6 @@ public interface SysAreaMapper {
      * This method corresponds to the database table sys_area
      * @mbg.generated
      */
-    @Insert({
-        "insert into sys_area (id, area_name, ",
-        "father_id, area_shortname, ",
-        "area_fullname, `status`, ",
-        "upd_datetime, upd_user, ",
-        "sort_id, max_delnum_county, ",
-        "max_delnum_base, test_blob, ",
-        "test_boolean, test_clob, ",
-        "add_user_id, add_user, ",
-        "add_dttm, last_upd_user_id, ",
-        "last_upd_user, last_upd_dttm, ",
-        "`enable`)",
-        "values (#{id,jdbcType=VARCHAR}, #{areaName,jdbcType=VARCHAR}, ",
-        "#{fatherId,jdbcType=VARCHAR}, #{areaShortname,jdbcType=VARCHAR}, ",
-        "#{areaFullname,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, ",
-        "#{updDatetime,jdbcType=TIMESTAMP}, #{updUser,jdbcType=VARCHAR}, ",
-        "#{sortId,jdbcType=INTEGER}, #{maxDelnumCounty,jdbcType=TINYINT}, ",
-        "#{maxDelnumBase,jdbcType=TINYINT}, #{testBlob,jdbcType=VARCHAR}, ",
-        "#{testBoolean,jdbcType=BIT}, #{testClob,jdbcType=VARCHAR}, ",
-        "#{addUserId,jdbcType=VARCHAR}, #{addUser,jdbcType=VARCHAR}, ",
-        "#{addDttm,jdbcType=DATE}, #{lastUpdUserId,jdbcType=VARCHAR}, ",
-        "#{lastUpdUser,jdbcType=VARCHAR}, #{lastUpdDttm,jdbcType=DATE}, ",
-        "#{enable,jdbcType=BIT})"
-    })
     int insert(SysArea record);
 
     /**
@@ -66,7 +33,6 @@ public interface SysAreaMapper {
      * This method corresponds to the database table sys_area
      * @mbg.generated
      */
-    @InsertProvider(type=SysAreaSqlProvider.class, method="insertSelective")
     int insertSelective(SysArea record);
 
     /**
@@ -74,38 +40,13 @@ public interface SysAreaMapper {
      * This method corresponds to the database table sys_area
      * @mbg.generated
      */
-    @SelectProvider(type=SysAreaSqlProvider.class, method="selectByExample")
-    @Results({
-        @Result(column="id", property="id", jdbcType=JdbcType.VARCHAR),
-        @Result(column="area_name", property="areaName", jdbcType=JdbcType.VARCHAR),
-        @Result(column="father_id", property="fatherId", jdbcType=JdbcType.VARCHAR),
-        @Result(column="area_shortname", property="areaShortname", jdbcType=JdbcType.VARCHAR),
-        @Result(column="area_fullname", property="areaFullname", jdbcType=JdbcType.VARCHAR),
-        @Result(column="status", property="status", jdbcType=JdbcType.TINYINT),
-        @Result(column="upd_datetime", property="updDatetime", jdbcType=JdbcType.TIMESTAMP),
-        @Result(column="upd_user", property="updUser", jdbcType=JdbcType.VARCHAR),
-        @Result(column="sort_id", property="sortId", jdbcType=JdbcType.INTEGER),
-        @Result(column="max_delnum_county", property="maxDelnumCounty", jdbcType=JdbcType.TINYINT),
-        @Result(column="max_delnum_base", property="maxDelnumBase", jdbcType=JdbcType.TINYINT),
-        @Result(column="test_blob", property="testBlob", jdbcType=JdbcType.VARCHAR),
-        @Result(column="test_boolean", property="testBoolean", jdbcType=JdbcType.BIT),
-        @Result(column="test_clob", property="testClob", jdbcType=JdbcType.VARCHAR),
-        @Result(column="add_user_id", property="addUserId", jdbcType=JdbcType.VARCHAR),
-        @Result(column="add_user", property="addUser", jdbcType=JdbcType.VARCHAR),
-        @Result(column="add_dttm", property="addDttm", jdbcType=JdbcType.DATE),
-        @Result(column="last_upd_user_id", property="lastUpdUserId", jdbcType=JdbcType.VARCHAR),
-        @Result(column="last_upd_user", property="lastUpdUser", jdbcType=JdbcType.VARCHAR),
-        @Result(column="last_upd_dttm", property="lastUpdDttm", jdbcType=JdbcType.DATE),
-        @Result(column="enable", property="enable", jdbcType=JdbcType.BIT)
-    })
-    List<SysArea> selectByExample(SysAreaCriteria example);
+    List<SysArea> selectByExample(SysAreaCriteria example, RowBounds rowBounds);
 
     /**
      * This method was generated by MyBatis Generator.
      * This method corresponds to the database table sys_area
      * @mbg.generated
      */
-    @UpdateProvider(type=SysAreaSqlProvider.class, method="updateByExampleSelective")
     int updateByExampleSelective(@Param("record") SysArea record, @Param("example") SysAreaCriteria example);
 
     /**
@@ -113,6 +54,5 @@ public interface SysAreaMapper {
      * This method corresponds to the database table sys_area
      * @mbg.generated
      */
-    @UpdateProvider(type=SysAreaSqlProvider.class, method="updateByExample")
     int updateByExample(@Param("record") SysArea record, @Param("example") SysAreaCriteria example);
 }
