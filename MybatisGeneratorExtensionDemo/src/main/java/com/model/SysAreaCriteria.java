@@ -925,6 +925,76 @@ public class SysAreaCriteria {
             return (Criteria) this;
         }
 
+        public Criteria andTestBlobIsNull() {
+            addCriterion("test_blob is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestBlobIsNotNull() {
+            addCriterion("test_blob is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestBlobEqualTo(String value) {
+            addCriterion("test_blob =", value, "testBlob");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestBlobNotEqualTo(String value) {
+            addCriterion("test_blob <>", value, "testBlob");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestBlobGreaterThan(String value) {
+            addCriterion("test_blob >", value, "testBlob");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestBlobGreaterThanOrEqualTo(String value) {
+            addCriterion("test_blob >=", value, "testBlob");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestBlobLessThan(String value) {
+            addCriterion("test_blob <", value, "testBlob");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestBlobLessThanOrEqualTo(String value) {
+            addCriterion("test_blob <=", value, "testBlob");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestBlobLike(String value) {
+            addCriterion("test_blob like", value, "testBlob");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestBlobNotLike(String value) {
+            addCriterion("test_blob not like", value, "testBlob");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestBlobIn(List<String> values) {
+            addCriterion("test_blob in", values, "testBlob");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestBlobNotIn(List<String> values) {
+            addCriterion("test_blob not in", values, "testBlob");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestBlobBetween(String value1, String value2) {
+            addCriterion("test_blob between", value1, value2, "testBlob");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestBlobNotBetween(String value1, String value2) {
+            addCriterion("test_blob not between", value1, value2, "testBlob");
+            return (Criteria) this;
+        }
+
         public Criteria andTestBooleanIsNull() {
             addCriterion("test_boolean is null");
             return (Criteria) this;
@@ -982,6 +1052,76 @@ public class SysAreaCriteria {
 
         public Criteria andTestBooleanNotBetween(Boolean value1, Boolean value2) {
             addCriterion("test_boolean not between", value1, value2, "testBoolean");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestClobIsNull() {
+            addCriterion("test_clob is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestClobIsNotNull() {
+            addCriterion("test_clob is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestClobEqualTo(String value) {
+            addCriterion("test_clob =", value, "testClob");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestClobNotEqualTo(String value) {
+            addCriterion("test_clob <>", value, "testClob");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestClobGreaterThan(String value) {
+            addCriterion("test_clob >", value, "testClob");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestClobGreaterThanOrEqualTo(String value) {
+            addCriterion("test_clob >=", value, "testClob");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestClobLessThan(String value) {
+            addCriterion("test_clob <", value, "testClob");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestClobLessThanOrEqualTo(String value) {
+            addCriterion("test_clob <=", value, "testClob");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestClobLike(String value) {
+            addCriterion("test_clob like", value, "testClob");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestClobNotLike(String value) {
+            addCriterion("test_clob not like", value, "testClob");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestClobIn(List<String> values) {
+            addCriterion("test_clob in", values, "testClob");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestClobNotIn(List<String> values) {
+            addCriterion("test_clob not in", values, "testClob");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestClobBetween(String value1, String value2) {
+            addCriterion("test_clob between", value1, value2, "testClob");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestClobNotBetween(String value1, String value2) {
+            addCriterion("test_clob not between", value1, value2, "testClob");
             return (Criteria) this;
         }
 

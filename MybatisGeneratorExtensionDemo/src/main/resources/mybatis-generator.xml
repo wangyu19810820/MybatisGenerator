@@ -7,15 +7,14 @@ PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
 	<properties resource="config.properties"/>
 
 	<!-- classPathEntry:数据库的JDBC驱动,换成你自己的驱动位置 -->
+	<!--该路径只在加载jdbc驱动和载入生成类的父类时有效-->
 	<classPathEntry location="C:\Users\admin\.m2\repository\mysql\mysql-connector-java\5.1.36\mysql-connector-java-5.1.36.jar" />
-	<!--<classPathEntry location="C:\Users\admin\.m2\repository\wangyu1981\MBGPlugin\1.0\MBGPlugin-1.0.jar" />-->
-	<!--<classPathEntry location="E:\gitproj\mybatis-generator\target\classes\com\com.base\." />-->
 
-	<!--targetRuntime MyBatis3：默认 MyBatis3Simple：无查询类-->
+	<!--targetRuntime MyBatis3：默认，包含查询类； MyBatis3Simple：无查询类-->
 	<!--defaultModelType conditional:默认,主键是单字段则一个文件，BLOB类型会单独一个文件 flat:每一张表只生成一个实体类-->
 	<context id="generatorTables" targetRuntime="MyBatis3" defaultModelType="flat">
 
-		<!-- 给表名或字段名添加分隔符, 指定分隔符 -->
+		<!-- 给表名或字段名添加分隔符, 指定分隔符为`(MySql形式) -->
 		<property name="autoDelimitKeywords" value="true" />
 		<property name="beginningDelimiter" value="`" />
 		<property name="endingDelimiter" value="`" />
@@ -32,26 +31,28 @@ PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
 			<property name="replaceString" value="Criteria"/>
 		</plugin>
 
-		<plugin type="org.mybatis.generator.plugins.ToStringPlugin">
-			<property name="useToStringFromRoot" value="true"></property>
-		</plugin>
+		<!--<plugin type="org.mybatis.generator.plugins.ToStringPlugin">-->
+			<!--<property name="useToStringFromRoot" value="true"></property>-->
+		<!--</plugin>-->
 
 		<!--<plugin type="org.mybatis.generator.plugins.SerializablePlugin">-->
 			<!--<property name="addGWTInterface" value="false"/>-->
 			<!--<property name="suppressJavaInterface" value="false"/>-->
 		<!--</plugin>-->
 
-		<!--自定义插件，用于学习，生成model类的时候回调，指定父类类名，添加字段，添加方法-->
+		<!--自定义插件，用于学习。生成model类的时候回调，指定父类类名，添加字段，添加方法-->
 		<!--<plugin type="com.custom.ModelCallbackPlugin">-->
 			<!--<property name="baseClassName" value="com.abc.ZZZ"></property>-->
 			<!--<property name="customFieldName" value="aaa"></property>-->
 			<!--<property name="customMethodName" value="getAaa"></property>-->
 		<!--</plugin>-->
 
+		<!--自定义插件，用于学习。在载入单表，初始化的时候，就会回调-->
+		<!--<plugin type="com.custom.GenericDaoPlugin">-->
+		<!--</plugin>-->
 
-		<plugin type="org.mybatis.generator.plugins.VirtualPrimaryKeyPlugin">
-			<property name="virtualKeyColumns" value="id"/>
-		</plugin>
+		<!--<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin">-->
+		<!--</plugin>-->
 
 		<!-- commentGenerator 去除自动生成的注释  不要suppressDate避免重复提交SVN-->
 		<!--保留suppressAllComments，有个注解可以让MBG识别自动生成代码和手动添加代码-->
@@ -89,10 +90,11 @@ PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
 		</sqlMapGenerator>
 
 		<!-- javaClientGenerator是应用接口的生成信息； -->
-		<javaClientGenerator type="XMLMAPPER"
-							 targetPackage="com.dao" targetProject="src/main/java">
+		<javaClientGenerator type="ANNOTATEDMAPPER"
+				targetPackage="com.dao" targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
-			<property name="rootInterface" value="com.base.GenericDao&lt;SysArea, SysAreaCriteria&gt;" />
+			<property name="methodNameCalculator" value="extended" />
+			<!--<property name="rootInterface" value="com.base.GenericDao&lt;SysArea, SysAreaCriteria&gt;" />-->
 		</javaClientGenerator>
 
 		<!--<table tableName="sys_log" domainObjectName="SysLog"></table>-->
