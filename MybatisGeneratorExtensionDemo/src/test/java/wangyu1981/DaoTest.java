@@ -26,7 +26,7 @@ public class DaoTest {
         criteria.createCriteria();
         RowBounds rowBounds = new RowBounds(10, 10);
 
-        List<SysArea> list = sysAreaMapper.selectByExample(criteria, rowBounds);
+        List<SysArea> list = sysAreaMapper.selectByExample(criteria);
         list.forEach(System.out::println);
     }
 
