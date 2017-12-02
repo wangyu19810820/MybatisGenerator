@@ -1,18 +1,14 @@
 package com.custom;
 
-import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
-import org.mybatis.generator.api.dom.java.*;
+import org.mybatis.generator.api.dom.java.InnerClass;
+import org.mybatis.generator.api.dom.java.JavaElement;
 import org.mybatis.generator.config.MergeConstants;
-import org.mybatis.generator.config.PropertyRegistry;
 import org.mybatis.generator.internal.DefaultCommentGenerator;
-import org.mybatis.generator.internal.util.StringUtility;
 
-import java.text.SimpleDateFormat;
-import java.util.Properties;
-
-import static org.mybatis.generator.internal.util.StringUtility.isTrue;
-
+/**
+ * 学习如何使用，自定义生成注释的类来生成注释
+ */
 public class CustomCommentGenerator extends DefaultCommentGenerator {
 
 //    private Properties properties;

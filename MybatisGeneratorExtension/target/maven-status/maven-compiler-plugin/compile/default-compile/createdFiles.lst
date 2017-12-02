@@ -1,6 +1,7 @@
-com\custom\ModelCallbackPlugin.class
 com\custom\GenericDaoPlugin.class
 com\custom\MapperPlugin.class
 com\custom\InitializeCallbackPlugin.class
-com\custom\CustomJavaMapperGenerator.class
 com\custom\CustomCommentGenerator.class
+com\custom\OtherFileCallbackPlugin.class
+com\custom\ModelCallbackPlugin.class
+com\custom\CustomJavaMapperGenerator.class

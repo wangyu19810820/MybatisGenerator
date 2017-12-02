@@ -1,6 +1,5 @@
 package wangyu1981;
 
-import com.dao.SysAreaExtendMapper;
 import com.dao.SysAreaMapper;
 import com.model.SysArea;
 import com.model.SysAreaCriteria;
@@ -22,12 +21,12 @@ public class DaoTest {
 
     @Test
     public void testCountByExample() {
-        SysAreaCriteria criteria = new SysAreaCriteria();
-        criteria.createCriteria();
-        RowBounds rowBounds = new RowBounds(10, 10);
-
-        List<SysArea> list = sysAreaMapper.selectByExample(criteria);
-        list.forEach(System.out::println);
+//        SysAreaCriteria criteria = new SysAreaCriteria();
+//        criteria.createCriteria();
+//        RowBounds rowBounds = new RowBounds(10, 10);
+//
+//        List<SysArea> list = sysAreaMapper.selectByExample(criteria);
+//        list.forEach(System.out::println);
     }
 
 //    @Test

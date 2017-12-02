@@ -18,6 +18,9 @@ import java.util.List;
 
 import static org.mybatis.generator.internal.util.StringUtility.stringHasValue;
 
+/**
+ * 学习自定义Mapper文件
+ */
 public class MapperPlugin extends PluginAdapter {
 
     private static final String DEFAULT_DAO_SUPER_CLASS = "com.base.GenericDao";
@@ -62,6 +65,7 @@ public class MapperPlugin extends PluginAdapter {
         return valid && valid2;
     }
 
+    // 在Mapper文件中添加一个方法selectAll
     @Override
     public boolean sqlMapDocumentGenerated(Document document, IntrospectedTable introspectedTable) {
         XmlElement select = new XmlElement("select");
@@ -75,6 +79,7 @@ public class MapperPlugin extends PluginAdapter {
         return super.sqlMapDocumentGenerated(document, introspectedTable);
     }
 
+    // 具体功能不明，生成其它文件的例子可以参考OtherFileCallbackPlugin
     public List<GeneratedJavaFile> contextGenerateAdditionalJavaFiles(IntrospectedTable introspectedTable) {
         JavaFormatter javaFormatter = context.getJavaFormatter();
         List<GeneratedJavaFile> mapperJavaFiles = new ArrayList<GeneratedJavaFile>();
@@ -86,7 +91,7 @@ public class MapperPlugin extends PluginAdapter {
 
             GeneratedJavaFile mapperJavafile = null;
 
-            if (shortName.endsWith("Mapper")) { // 扩展Mapper
+            if (shortName.endsWith("Mapper")) {
                 if (stringHasValue(expandDaoTargetPackage)) {
                     Interface mapperInterface = new Interface(
                             expandDaoTargetPackage + "." + shortName.replace("Mapper", "ExpandMapper"));

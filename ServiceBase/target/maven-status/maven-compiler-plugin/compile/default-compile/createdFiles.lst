@@ -1,2 +1,4 @@
-com\base\BaseModel.class
 com\base\GenericDao.class
+com\base\BaseModel.class
+com\base\GenericService.class
+com\base\GenericServiceImpl.class

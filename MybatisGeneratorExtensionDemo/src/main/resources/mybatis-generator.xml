@@ -26,11 +26,6 @@ PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
 			<!--<property name="targetProject" value="src/main/resources"/>-->
 		<!--</plugin>-->
 		
-		<!-- 此处是将Example改名为Criteria 当然 想改成什么都行 -->
-		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
-			<property name="searchString" value="Example"/>
-			<property name="replaceString" value="Criteria"/>
-		</plugin>
 
 		<!--<plugin type="org.mybatis.generator.plugins.RowBoundsPlugin">-->
 		<!--</plugin>-->
@@ -51,7 +46,13 @@ PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
 		<!--<plugin type="com.custom.GenericDaoPlugin">-->
 		<!--</plugin>-->
 
-		<!--<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin">-->
+		<plugin type="com.custom.OtherFileCallbackPlugin">
+		</plugin>
+
+		<!-- 此处是将Example改名为Criteria 当然 想改成什么都行 -->
+		<!--<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">-->
+			<!--<property name="searchString" value="Example"/>-->
+			<!--<property name="replaceString" value="Criteria"/>-->
 		<!--</plugin>-->
 
 		<!-- commentGenerator 去除自动生成的注释  不要suppressDate避免重复提交SVN-->
@@ -99,7 +100,7 @@ PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
 
 		<!--<table tableName="sys_log" domainObjectName="SysLog"></table>-->
 
-		<table tableName="sys_area" domainObjectName="SysArea">
+		<table tableName="company" domainObjectName="Company">
 		</table>
 
 

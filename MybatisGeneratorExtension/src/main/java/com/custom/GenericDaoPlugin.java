@@ -8,6 +8,9 @@ import org.mybatis.generator.api.dom.java.TopLevelClass;
 
 import java.util.List;
 
+/**
+ * 自定义Dao的父接口，利用MBG的插件，具备实用性
+ */
 public class GenericDaoPlugin extends PluginAdapter {
 
     @Override
@@ -23,14 +26,15 @@ public class GenericDaoPlugin extends PluginAdapter {
 //        introspectedTable.setDAOInterfaceType("com.base.GenericDao");
 //    }
 
+    // 生成Dao文件前的回调，添加父接口
     public boolean clientGenerated(Interface interfaze,
                                    TopLevelClass topLevelClass,
                                    IntrospectedTable introspectedTable) {
-
+        // 生成Dao的父接口
         FullyQualifiedJavaType fqjt = new FullyQualifiedJavaType("GenericDao<" + introspectedTable.getBaseRecordType()  + ", " + introspectedTable.getBaseRecordType() + "Criteria>");
         FullyQualifiedJavaType imp = new FullyQualifiedJavaType("com.base.GenericDao");
-        interfaze.addSuperInterface(fqjt);// 添加 extends BaseDao<user>
-        interfaze.addImportedType(imp);// 添加import common.BaseDao;
+        interfaze.addSuperInterface(fqjt);  // 添加 extends BaseDao<user>
+        interfaze.addImportedType(imp);     // 添加import common.BaseDao;
         interfaze.getMethods().clear();
 
         return true;
