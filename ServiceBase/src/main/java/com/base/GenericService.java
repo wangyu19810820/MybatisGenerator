@@ -1,8 +1,10 @@
 package com.base;
 
-import java.util.List;
+public interface GenericService<D extends GenericDao<M, Q, PK>, M, Q, PK> {
 
-public interface GenericService<M, PK> {
-
-    long count();
+    int insert(M m);
+    int update(M m);
+    int deleteByPrimaryKey(PK pk);
+    M selectByPrimaryKey(PK pk);
+    D getDao();
 }

@@ -43,10 +43,12 @@ PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
 		<!--</plugin>-->
 
 		<!--自定义插件，用于学习。在载入单表，初始化的时候，就会回调-->
-		<!--<plugin type="com.custom.GenericDaoPlugin">-->
-		<!--</plugin>-->
+		<plugin type="com.custom.GenericDaoPlugin">
+		</plugin>
 
 		<plugin type="com.custom.OtherFileCallbackPlugin">
+			<property name="targetPackage" value="com.service"></property>
+			<property name="targetProject" value="src/main/java"></property>
 		</plugin>
 
 		<!-- 此处是将Example改名为Criteria 当然 想改成什么都行 -->

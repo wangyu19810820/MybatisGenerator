@@ -1,15 +1,32 @@
 package com.base;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
-public class GenericServiceImpl<M, PK> implements GenericService<M, PK> {
+import java.util.List;
+
+public class GenericServiceImpl<D extends GenericDao<M, Q, PK>, M, Q, PK>
+        implements GenericService<D, M, Q, PK> {
 
     @Autowired
-    private GenericDao<M, PK> dao;
+    protected D dao;
 
-    public long count() {
-        return dao.countByExample(null);
+    public int insert(M m) {
+        return dao.insert(m);
+    }
+
+    public int update(M m) {
+        return dao.updateByPrimaryKeySelective(m);
+    }
+
+    public int deleteByPrimaryKey(PK pk) {
+        return dao.deleteByPrimaryKey(pk);
+    }
+
+    public M selectByPrimaryKey(PK pk) {
+        return dao.selectByPrimaryKey(pk);
+    }
+
+    public D getDao() {
+        return dao;
     }
 }

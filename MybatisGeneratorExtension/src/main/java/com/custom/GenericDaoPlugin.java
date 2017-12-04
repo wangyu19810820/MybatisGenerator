@@ -1,5 +1,6 @@
 package com.custom;
 
+import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.PluginAdapter;
 import org.mybatis.generator.api.dom.java.FullyQualifiedJavaType;
@@ -18,23 +19,27 @@ public class GenericDaoPlugin extends PluginAdapter {
         return true;
     }
 
-//    @Override
-//    public void initialized(IntrospectedTable introspectedTable) {
-////        String javaType = introspectedTable.getMyBatis3JavaMapperType();
-////        introspectedTable.setMyBatis3JavaMapperType(javaType + "1");
-//
-//        introspectedTable.setDAOInterfaceType("com.base.GenericDao");
-//    }
-
     // 生成Dao文件前的回调，添加父接口
     public boolean clientGenerated(Interface interfaze,
                                    TopLevelClass topLevelClass,
                                    IntrospectedTable introspectedTable) {
+        String modelType = introspectedTable.getBaseRecordType();
+        String exampleType = introspectedTable.getExampleType();
+        List<IntrospectedColumn> keyColumn = introspectedTable.getPrimaryKeyColumns();
+        String pkType = "";
+        if (keyColumn.size() > 1) {
+            pkType = introspectedTable.getPrimaryKeyType();
+        } else if (keyColumn.size() == 1) {
+            pkType = keyColumn.get(0).getFullyQualifiedJavaType().getShortName();
+        }
+
         // 生成Dao的父接口
-        FullyQualifiedJavaType fqjt = new FullyQualifiedJavaType("GenericDao<" + introspectedTable.getBaseRecordType()  + ", " + introspectedTable.getBaseRecordType() + "Criteria>");
+        FullyQualifiedJavaType fqjt = new FullyQualifiedJavaType("GenericDao<" + modelType  + ", " + exampleType + "," + pkType + ">");
         FullyQualifiedJavaType imp = new FullyQualifiedJavaType("com.base.GenericDao");
         interfaze.addSuperInterface(fqjt);  // 添加 extends BaseDao<user>
         interfaze.addImportedType(imp);     // 添加import common.BaseDao;
+
+        // dao不生成方法
         interfaze.getMethods().clear();
 
         return true;
