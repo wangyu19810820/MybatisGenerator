@@ -57,6 +57,10 @@ PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
 			<!--<property name="replaceString" value="Criteria"/>-->
 		<!--</plugin>-->
 
+		<plugin type="org.mybatis.generator.plugins.VirtualPrimaryKeyPlugin">
+			<property name="virtualKeyColumns" value="id"/>
+		</plugin>
+
 		<!-- commentGenerator 去除自动生成的注释  不要suppressDate避免重复提交SVN-->
 		<!--保留suppressAllComments，有个注解可以让MBG识别自动生成代码和手动添加代码-->
 		<commentGenerator type="com.custom.CustomCommentGenerator">
@@ -90,6 +94,7 @@ PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
 		<sqlMapGenerator targetPackage="com.mapper"
 				targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
+			<property name="primaryKey" value="name" />
 		</sqlMapGenerator>
 
 		<!-- javaClientGenerator是应用接口的生成信息； -->
@@ -103,6 +108,7 @@ PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
 		<!--<table tableName="sys_log" domainObjectName="SysLog"></table>-->
 
 		<table tableName="company" domainObjectName="Company">
+			<property name="virtualKeyColumns" value="id"></property>
 		</table>
 
 

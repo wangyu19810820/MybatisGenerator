@@ -28,6 +28,13 @@ public class OtherFileCallbackPlugin extends PluginAdapter {
         shellCallback = new DefaultShellCallback(false);
     }
 
+//    @Override
+//    public void initialized(IntrospectedTable introspectedTable) {
+//        super.initialized(introspectedTable);
+//        System.out.println("OtherFileCallbackPlugin 111111111111111111111111111111111111111111111111");
+//        introspectedTable.addPrimaryKeyColumn("id");
+//    }
+
     @Override
     public boolean validate(List<String> warnings) {
         serviceTargetDir = properties.getProperty("targetProject");
@@ -43,6 +50,7 @@ public class OtherFileCallbackPlugin extends PluginAdapter {
 
         String modelType = new FullyQualifiedJavaType(introspectedTable.getBaseRecordType()).getShortName();
         String exampleType = new FullyQualifiedJavaType(introspectedTable.getExampleType()).getShortName();
+
         List<IntrospectedColumn> keyColumn = introspectedTable.getPrimaryKeyColumns();
         String pkType = "";
         if (keyColumn.size() > 1) {
