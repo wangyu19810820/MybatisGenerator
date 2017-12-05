@@ -94,7 +94,6 @@ PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
 		<sqlMapGenerator targetPackage="com.mapper"
 				targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
-			<property name="primaryKey" value="name" />
 		</sqlMapGenerator>
 
 		<!-- javaClientGenerator是应用接口的生成信息； -->
